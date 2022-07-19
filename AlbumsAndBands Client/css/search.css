@@ -1,0 +1,37 @@
+.container {
+  margin: auto;
+  text-align: center;
+}
+
+.form {
+  margin-top: 1rem;
+  position: relative;
+  text-align: center;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.control input {
+  margin: auto;
+  font: inherit;
+  padding: 0.35rem;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  border: 1px solid #c1d1d1;
+  display: block;
+  width: 20%;
+  font-size: 1.25rem;
+}
+
+.control input:focus {
+  background-color: #cbf8f8;
+  outline-color: teal;
+}

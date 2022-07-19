@@ -1,0 +1,92 @@
+<html>
+<head>
+	<title>Albums client</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/search.css"/>
+	<script type="text/javascript" src="js/skripta.js"></script>
+</head>
+<body onload="loadPage()">
+	<div class="container">
+		<p id = "userLogged">Korisnik nije prijavljen na sistem.</p>
+		<button id="btnRegister" onclick="showRegistration()" class="btn btn-warning">Registracija</button>
+		<br/>
+		<br/>
+		<button id="btnLogin" onclick="showLogin()" class="btn btn-success"> Prijava </button>
+		<div id="logout" style="display:none" class="mt-1">
+			<button class="btn btn-danger" onclick="logout()">Odjava</button>
+		</div>
+		<hr/>
+		<div id="loginFormDiv" style="display:none">
+			<h3>Login</h3>
+			<br/>
+			<form method="post" action="post/" id="loginForm" onsubmit="return loginUser()">
+				<div class="control">
+					<label>Korisnicko ime: </label>
+					<input type="text" id="usernameLogin"/>
+					<label>Lozinka:</label>
+					<input type="password" id="passwordLogin"/>
+					<br />
+					<button class="btn btn-success">Submit</button>
+				</div>
+			</form>
+			<hr/>
+		</div>
+		<div id="registerFormDiv" style="display:none">
+			<h3>Register</h3>
+			<form  method="post" action="post/" id="registerForm" onsubmit="return registerUser()">
+				<div class="control">
+					<label>Korisnicko ime: </label>
+					<input type="text" id="usernameRegister"/>
+					<label>Email: </label>
+					<input type="email" id="emailRegister"/>
+					<label>Lozinka: </label>
+					<input type="password" id="passwordRegister">
+					<label>Ponovi lozinku: </label>
+					<input type="password" id="confirmPasswordRegister">
+				</div>
+				<br />
+				<button class="btn btn-success">Prijavi se</button>
+				<button type = "reset" class="btn btn-warning">Odustajanje</button>
+			</form>
+			<hr/>
+		</div>
+		<div class="control" id = searchDiv>
+			<form class="form" method = "post" action = "post/" id= "searchForm" onsubmit="return submitSearchForm()">
+				<p>Pretraga albuma po godini izdavanja</p>
+				<label>Najstariji</label>
+				<input type = "number" id = "minPublishingYear"/>
+				<label>Najmlađi</label>
+				<input type = "number" id = "maxPublishingYear"/>
+				<br/>
+				<button class="btn btn-success">Trazi</button>
+			</form>
+		</div>
+
+		<hr/>
+		
+		<div id="data">
+		</div>
+
+		<hr/>
+
+		<div class="control" id="formDiv" style="display:none"> 
+			<form class="form" method="post" action="post/" id="albumsForm" onsubmit="return submitAlbumForm()">
+				<label>Bend </label>
+				<select id = "albumBand"></select>
+				<label>Ime:</label>
+				<input id="albumName">
+				<label>Godina izdavanja:</label>
+				<input id="albumPublishingYear" type="number" min = 1950 max = 2022/>
+				<label>Zanr:</label>
+				<input id="albumGenre" type="text"/>
+				<label>Broj prodatih primeraka (M):</label>
+				<input id="albumCopiesSold" type="number" max = 100 min = 0/>
+				<br/>
+				<button class="btn btn-success">Dodavanje</button>
+				<button class="btn" type ="reset">Odustajanje</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
